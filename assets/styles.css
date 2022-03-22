@@ -9,10 +9,11 @@
 
 body {
   min-height: 100vh;
-  background-image: url(/assets/images/bg.svg);
+  background-image: url(/assets/images/stars-galaxy.gif);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 header {
@@ -27,44 +28,59 @@ header {
 }
 
 /* Start of Price slider in header */
-/* @-webkit-keyframes scroll {
-  0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(calc(-250px * 7));
-    transform: translateX(calc(-250px * 7));
-  }
-} */
-@keyframes scroll {
-  0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(calc(-200px * 2));
-    transform: translateX(calc(-200px * 2));
-  }
-}
 .slider {
   position: relative;
+  padding-top: 0.2rem;
   margin: auto;
+  width: 1140px;
   height: 25px;
-  color: white;
   overflow: hidden;
+  color: white;
+}
+
+.slider::before,
+.slider::after {
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  content: '';
+  z-index: 2;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  -webkit-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
 }
 
 .slider .slide-track {
-  width: calc(250px * 5);
+  width: calc(250px * 18);
   display: flex;
-  -webkit-animation: scroll 7s linear infinite;
-  animation: scroll 7s linear infinite;
+  animation: scroll 80s linear infinite;
 }
+
+.slider .slide-track:hover {
+  animation-play-state: paused;
+}
+
 .slider .slide {
-  padding-top: 0.2rem;
-  width: 200px;
-  height: 100px;
+  height: 250px;
+  width: 250px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 9));
+  }
 }
 /* End of price slider */
 
@@ -81,6 +97,12 @@ header {
   flex-direction: column;
   align-items: center;
   color: white;
+  font-size: 1.2rem;
+}
+
+#btc-price {
+  margin-top: 0.6rem;
+  font-size: 2rem;
 }
 
 hr {
@@ -102,17 +124,31 @@ hr {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+label {
+  margin: 1rem 0rem 1rem 0rem;
+}
+
 .inputs-div {
   display: flex;
   flex-direction: column;
   padding: 1.3rem;
 }
 
-.input-control {
+.current-stats {
   position: relative;
+  padding-left: 40%;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 18px;
+  background-color: white;
 }
 
-.input-control div {
+.current-stat {
+  color: black;
+}
+
+.symbol-wrapper {
   position: absolute;
   padding: 0rem 0.7rem 0rem 0.7rem;
   left: 0.2rem;
@@ -124,24 +160,17 @@ hr {
   color: white;
   background-color: #5e5df0;
   border-radius: 16px;
+  cursor: pointer;
 }
 
 .currency-symbol {
   margin: 0rem 0.5rem 0rem 0.3rem;
 }
 
-.input-control input {
-  padding-left: 70%;
-  padding-right: 10%;
-  height: 2.4rem;
-  width: 100%;
-  border-radius: 18px;
-  border: none;
-}
-
 .convert-div {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 1.3rem;
 }
 
@@ -169,14 +198,21 @@ hr {
 }
 
 .convert-btn-wrapper i {
-  margin-right: 0.4rem;
+  margin-right: 0.5rem;
 }
 
 .total-container {
   margin-top: 1rem;
+  width: 80%;
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
+}
+
+.total-container p {
+  margin: 1rem 0rem 1rem 0rem;
 }
 
 .price-div {

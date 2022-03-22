@@ -11,55 +11,64 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/assets/styles.css" />
     <script src="/assets/script.js" async></script>
-    <title>Price Calculator</title>
+    <title>MarketCap Calculator</title>
   </head>
   <body>
+    <!--------- Header ---------->
     <header>
-      <!-- Logo -->
+      <!------- Logo -------->
       <img
         src="https://www.posenfoundation.co.il/wp-content/uploads/2019/02/logo-placeholder-png-3.png"
         alt="site-logo"
         id="logo"
       />
-      <!-- Price slider -->
+      <!------- Price slider -------->
       <div class="slider">
         <div class="slide-track">
-          <div class="slide">
-            <p>testing</p>
-          </div>
-          <div class="slide">
-            <p>testing</p>
-          </div>
-          <div class="slide">
-            <p>testing</p>
-          </div>
-          <div class="slide">
-            <p>testing</p>
-          </div>
-          <div class="slide">
-            <p>testing</p>
-          </div>
+          <div class="slide">BTC</div>
+          <div class="slide">ETC</div>
+          <div class="slide">ETH</div>
+          <div class="slide">NMC</div>
+          <div class="slide">LTC</div>
+          <div class="slide">XRP</div>
+          <div class="slide">ADA</div>
+          <div class="slide">XMR</div>
+          <div class="slide">SOL</div>
+          <div class="slide">BTC</div>
+          <div class="slide">ETC</div>
+          <div class="slide">ETH</div>
+          <div class="slide">NMC</div>
+          <div class="slide">LTC</div>
+          <div class="slide">XRP</div>
+          <div class="slide">ADA</div>
+          <div class="slide">XMR</div>
+          <div class="slide">SOL</div>
         </div>
       </div>
     </header>
+    <!--------- End of Header ---------->
+
     <main class="container">
+      <!------- Bitcoin's price section -------->
       <section class="btc-header">
-        <h1>Bitcoin's price</h1>
-        <p>$0</p>
-        <select name="" id="">
-          <option value="option-1">Option 1</option>
-          <option value="option-2">Option 2</option>
-          <option value="option-3">Option 3</option>
-        </select>
+        <p>Current Price of Bitcoin</p>
+        <p id="btc-price">$0</p>
       </section>
+      <!------- End of Bitcoin's price section -------->
 
       <section class="calculator">
         <div class="inputs-div">
-          <label for="">From</label>
-          <div class="input-control">
-            <div>
+          <label for="">Price of</label>
+          <div class="current-stats">
+            <div class="symbol-wrapper">
               <svg
                 width="20px"
                 height="20px"
@@ -78,11 +87,12 @@
               <p class="currency-symbol">BTC</p>
               <i class="fa-solid fa-angle-right"></i>
             </div>
-            <input type="number" name="" id="" />
+            <p class="current-stat">price: <span>$0</span></p>
           </div>
-          <label for="">To</label>
-          <div class="input-control">
-            <div>
+
+          <label for="">With the marketcap of</label>
+          <div class="current-stats">
+            <div class="symbol-wrapper">
               <svg
                 width="20px"
                 height="20px"
@@ -101,7 +111,7 @@
               <p class="currency-symbol">BTC</p>
               <i class="fa-solid fa-angle-right"></i>
             </div>
-            <input type="number" name="" id="" />
+            <p class="current-stat">marketcap: <span>$0</span></p>
           </div>
         </div>
 
@@ -109,13 +119,13 @@
 
         <div class="convert-div">
           <div class="convert-btn-wrapper">
-            <i class="fa-solid fa-rotate"></i>
-            <p>Convert</p>
+            <i class="fa-solid fa-calculator"></i>
+            <p>Calculate</p>
           </div>
           <div class="total-container">
-            <p>Total</p>
+            <p>X coin would be worth Y with the marketcap of Z</p>
             <div class="price-div">
-              <p>$0</p>
+              <p>$Y</p>
               <p>BTC</p>
             </div>
           </div>
