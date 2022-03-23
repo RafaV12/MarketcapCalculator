@@ -30,39 +30,18 @@ header {
 /* Start of Price slider in header */
 .slider {
   position: relative;
-  padding-top: 0.2rem;
-  margin: auto;
+  margin-top: 0.2rem;
   width: 1140px;
   height: 25px;
   overflow: hidden;
   color: white;
 }
 
-.slider::before,
-.slider::after {
-  position: absolute;
-  width: 100px;
-  height: 100%;
-  content: '';
-  z-index: 2;
-}
-
-.slider::after {
-  right: 0;
-  top: 0;
-  -webkit-transform: rotateZ(180deg);
-  transform: rotateZ(180deg);
-}
-
-.slider::before {
-  left: 0;
-  top: 0;
-}
-
 .slider .slide-track {
-  width: calc(250px * 18);
+  /* The width will depend on how many coins we got */
+  width: calc(250px * 9);
   display: flex;
-  animation: scroll 80s linear infinite;
+  animation: scroll 34s linear infinite;
 }
 
 .slider .slide-track:hover {
@@ -70,15 +49,28 @@ header {
 }
 
 .slider .slide {
-  height: 250px;
+  display: flex;
   width: 250px;
+}
+
+.coin-logo {
+  margin-right: 0.3rem;
+  height: 20px;
+  width: 20px;
+}
+
+.coin-symbol {
+  margin-right: 0.3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(calc(400px));
   }
   100% {
+    /* The translateX will depend on how many coins we got */
     transform: translateX(calc(-250px * 9));
   }
 }
@@ -216,9 +208,9 @@ label {
 }
 
 .price-div {
-  width: 4rem;
   display: flex;
   justify-content: space-around;
+  font-size: 1.6rem;
 }
 
 /* This applies from 640px onwards */
