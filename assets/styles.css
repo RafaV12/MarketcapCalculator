@@ -53,7 +53,8 @@ header {
   width: 250px;
 }
 
-.coin-logo {
+.coin-logo,
+#currency-logo {
   margin-right: 0.3rem;
   height: 20px;
   width: 20px;
@@ -128,12 +129,103 @@ label {
 
 .current-stats {
   position: relative;
-  padding-left: 40%;
+  padding-left: 32%;
   height: 2.5rem;
   display: flex;
   align-items: center;
   border-radius: 18px;
   background-color: white;
+}
+
+.select-modal {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  padding: 1rem;
+  max-height: 200px;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  background-color: #000000ea;
+  border-radius: 16px;
+  overflow-y: scroll;
+  z-index: 2;
+  animation: 1s expand forwards;
+}
+
+.exit-btn {
+  z-index: 3;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  color: rgb(255, 43, 43);
+  align-self: flex-end;
+  float: right;
+}
+
+@keyframes expand {
+  0% {
+    width: 100px;
+    height: 34px;
+  }
+  50% {
+    width: 98%;
+    height: 34px;
+  }
+  100% {
+    width: 98%;
+    height: 200px;
+  }
+}
+
+#search-input {
+  padding-bottom: 0.3rem;
+  width: 90%;
+  border: none;
+  background: none;
+  outline: none;
+  border-bottom: rgba(236, 236, 236, 0.671) solid;
+  color: white;
+}
+
+#select-coin-list {
+  padding: 0;
+  margin-top: 1rem;
+  list-style-type: none;
+}
+
+#select-coin-list li {
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Scroll bar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* End of scroll bar styling */
+
+.hidden {
+  display: none;
 }
 
 .current-stat {
@@ -150,13 +242,14 @@ label {
   align-items: center;
   font-size: 0.75rem;
   color: white;
-  background-color: #5e5df0;
+  background-color: #131313;
   border-radius: 16px;
   cursor: pointer;
 }
 
-.currency-symbol {
-  margin: 0rem 0.5rem 0rem 0.3rem;
+#currency-symbol {
+  text-transform: uppercase;
+  margin-right: 0.5rem;
 }
 
 .convert-div {
@@ -216,6 +309,6 @@ label {
 /* This applies from 640px onwards */
 @media (min-width: 640px) {
   body {
-    background: rgb(245, 52, 52);
+    background: rgb(34, 34, 34);
   }
 }
