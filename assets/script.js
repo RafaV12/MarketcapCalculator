@@ -82,7 +82,10 @@ const insertCoinsToList = (coinsArray, list) => {
             // In this case, CoinGecko's API doesn't have the circulating supply
             // of some coins, so we use the total.
             coinSupply = data[0].total_supply;
-            currentPrice.innerHTML = '$' + data[0].current_price;
+            currentPrice.innerHTML = new Intl.NumberFormat('us-US', {
+              style: 'currency',
+              currency: 'USD',
+            }).format(data[0].current_price);
           });
 
         // Close modal
@@ -126,9 +129,18 @@ const insertCoinsToList = (coinsArray, list) => {
               // If the coin doesn't have a marketcap in CoinGecko's API, we calculate it
               // (coin's current price (USD) * coin's total supply)
               coinMarketcap = data[0].current_price * data[0].total_supply;
-              return (currentMarketcap.innerHTML = '$' + coinMarketcap);
+              return (currentMarketcap.innerHTML = new Intl.NumberFormat(
+                'us-US',
+                {
+                  style: 'currency',
+                  currency: 'USD',
+                }
+              ).format(coinMarketcap));
             }
-            currentMarketcap.innerHTML = '$' + data[0].market_cap;
+            currentMarketcap.innerHTML = new Intl.NumberFormat('us-US', {
+              style: 'currency',
+              currency: 'USD',
+            }).format(data[0].market_cap);
           });
 
         // Close modal
@@ -144,7 +156,10 @@ const calculatePrice = () => {
   }
   // In this case, we are calculating the price of a coin
   // by dividing the marketcap and the coin's supply
-  calculatedPrice.innerHTML = coinMarketcap / coinSupply;
+  calculatedPrice.innerHTML = new Intl.NumberFormat('us-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(coinMarketcap / coinSupply);
 };
 
 function filterList(list) {
@@ -184,7 +199,10 @@ const createSlides = (coinsArray) => {
     coinSymbol.innerText = coin.symbol + ':';
     let coinPrice = document.createElement('p');
     coinPrice.classList.add('coin-price');
-    coinPrice.innerText = '$' + coin.current_price;
+    coinPrice.innerText = new Intl.NumberFormat('us-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(coin.current_price);
     let coinLogo = document.createElement('img');
     coinLogo.classList.add('coin-logo');
     coinLogo.src = coin.image;
@@ -214,9 +232,16 @@ const updatePrices = () => {
       // Update prices
       for (let index = 0; index < coinsArray.length; index++) {
         if (coinsArray[index].id === 'bitcoin') {
-          btcPrice.innerText = '$' + coinsArray[index].current_price;
+          btcPrice.innerText = new Intl.NumberFormat('us-US', {
+            style: 'currency',
+            currency: 'USD',
+          }).format(coinsArray[index].current_price);
         }
-        coinPrices[index].innerHTML = '$' + coinsArray[index].current_price;
+
+        coinPrices[index].innerHTML = new Intl.NumberFormat('us-US', {
+          style: 'currency',
+          currency: 'USD',
+        }).format(coinsArray[index].current_price);
       }
     })
     .catch(function (error) {
@@ -242,7 +267,10 @@ const fetchCoins = () => {
       // Set Bitcoin price
       coinsArray.forEach((coin) => {
         if (coin.id === 'bitcoin') {
-          btcPrice.innerText = '$' + coin.current_price;
+          btcPrice.innerText = new Intl.NumberFormat('us-US', {
+            style: 'currency',
+            currency: 'USD',
+          }).format(coin.current_price);
         }
       });
       // Create the slides for the price slider inside the header

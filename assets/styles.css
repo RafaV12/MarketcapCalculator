@@ -41,7 +41,7 @@ header {
   /* The width will depend on how many coins we got */
   width: calc(250px * 9);
   display: flex;
-  animation: scroll 34s linear infinite;
+  animation: scroll 70s linear infinite;
 }
 
 .slider .slide-track:hover {
