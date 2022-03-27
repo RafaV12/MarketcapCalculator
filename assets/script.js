@@ -77,7 +77,11 @@ const insertCoinsToList = (coinsArray, list) => {
         )
           .then((response) => response.json())
           .then((data) => {
-            coinSupply = data[0].circulating_supply;
+            // In reality, if we want to calculate the price of a coin,
+            // we should use the circulating supply instead of the total supply.
+            // In this case, CoinGecko's API doesn't have the circulating supply
+            // of some coins, so we use the total.
+            coinSupply = data[0].total_supply;
             currentPrice.innerHTML = '$' + data[0].current_price;
           });
 
@@ -118,6 +122,12 @@ const insertCoinsToList = (coinsArray, list) => {
           .then((response) => response.json())
           .then((data) => {
             coinMarketcap = data[0].market_cap;
+            if (coinMarketcap === 0) {
+              // If the coin doesn't have a marketcap in CoinGecko's API, we calculate it
+              // (coin's current price (USD) * coin's total supply)
+              coinMarketcap = data[0].current_price * data[0].total_supply;
+              return (currentMarketcap.innerHTML = '$' + coinMarketcap);
+            }
             currentMarketcap.innerHTML = '$' + data[0].market_cap;
           });
 
