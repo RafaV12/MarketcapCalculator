@@ -17,6 +17,8 @@ body {
 }
 
 header {
+  padding-top: 0.7rem;
+  max-width: 1200px;
   height: 43px;
   display: flex;
   align-items: center;
@@ -24,6 +26,7 @@ header {
 }
 
 #logo {
+  height: 3rem;
   width: 7rem;
 }
 
@@ -105,6 +108,7 @@ hr {
 }
 
 .calculator {
+  max-width: 1200px;
   margin-top: 1rem;
   width: 100%;
   display: flex;
@@ -130,7 +134,7 @@ label {
 
 .current-stats {
   position: relative;
-  padding-left: 32%;
+  padding-left: 40%;
   height: 2.5rem;
   display: flex;
   align-items: center;
@@ -211,7 +215,7 @@ label {
 
 /* Scroll bar styling */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 7px;
 }
 
 /* Track */
@@ -294,28 +298,54 @@ label {
 }
 
 .total-container {
+  padding: 1rem;
   margin-top: 1rem;
   width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  font-size: 1.3rem;
   align-items: center;
   text-align: center;
 }
 
-.total-container p {
-  margin: 1rem 0rem 1rem 0rem;
+@media (min-width: 768px) {
+  .calculator {
+    width: 60%;
+  }
 }
 
-.price-div {
-  display: flex;
-  justify-content: space-around;
-  font-size: 1.6rem;
-}
-
-/* This applies from 640px onwards */
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   body {
-    background: rgb(34, 34, 34);
+    background-image: url('https://wallpaperaccess.com/full/1155023.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .calculator {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1280px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .calculator {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1536px) {
+  header {
+    max-width: 1200px;
+  }
+
+  .calculator {
+    width: 30%;
   }
 }

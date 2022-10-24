@@ -13,10 +13,7 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/styles.css" />
     <script src="/assets/script.js" async></script>
     <title>MarketCap Calculator</title>
@@ -26,18 +23,13 @@
     <header>
       <!------- Logo -------->
       <img
-        src="https://www.posenfoundation.co.il/wp-content/uploads/2019/02/logo-placeholder-png-3.png"
+        src="https://www.filepicker.io/api/file/BjnNhsMZTr6ugJqKpdKU"
         alt="site-logo"
         id="logo"
       />
       <!------- Price slider -------->
       <div class="slider">
-        <div class="slide-track">
-          <!-- <div class="slide">
-            <p class="coin-symbol">BTC:</p>
-            <span class="coin-price">$0</span>
-          </div> -->
-        </div>
+        <div class="slide-track"></div>
       </div>
     </header>
     <!--------- End of Header ---------->
@@ -64,16 +56,11 @@
               <i class="fa-solid fa-angle-right"></i>
             </div>
             <p class="current-stat">
-              Current price: <span id="current-price">$0</span>
+              <span id="current-price">Select a coin</span>
             </p>
             <div class="hidden select-price-modal">
               <i class="fa-solid fa-xmark exit-price-btn"></i>
-              <input
-                type="text"
-                id="price-search-input"
-                onkeyup="filterList(`priceList`)"
-                placeholder="Search for a coin..."
-              />
+              <input type="text" id="price-search-input" onkeyup="filterList(`priceList`)" placeholder="Search for a coin..." />
               <ul id="select-price-list"></ul>
             </div>
           </div>
@@ -91,16 +78,11 @@
               <i class="fa-solid fa-angle-right"></i>
             </div>
             <p class="current-stat">
-              Current Marketcap: <span id="current-marketcap">$0</span>
+              <span id="current-marketcap">Select a coin</span>
             </p>
             <div class="hidden select-marketcap-modal">
               <i class="fa-solid fa-xmark exit-marketcap-btn"></i>
-              <input
-                type="text"
-                id="marketcap-search-input"
-                onkeyup="filterList(`marketcapList`)"
-                placeholder="Search for a coin.."
-              />
+              <input type="text" id="marketcap-search-input" onkeyup="filterList(`marketcapList`)" placeholder="Search for a coin.." />
               <ul id="select-marketcap-list"></ul>
             </div>
           </div>
@@ -114,7 +96,7 @@
             <p>Calculate</p>
           </div>
           <div class="total-container">
-            <p id="calculated-price">$Y</p>
+            <p id="calculated-price">Click on "Calculate" to get a price!</p>
           </div>
         </div>
       </section>

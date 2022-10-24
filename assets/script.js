@@ -152,7 +152,7 @@ const insertCoinsToList = (coinsArray, list) => {
 
 const calculatePrice = () => {
   if (!coinSupply || !coinMarketcap) {
-    alert('You forgot to select a coin!');
+    return alert('You forgot to select a coin!');
   }
   // In this case, we are calculating the price of a coin
   // by dividing the marketcap and the coin's supply
